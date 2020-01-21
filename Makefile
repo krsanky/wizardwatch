@@ -1,20 +1,24 @@
 CFLAGS+=	-W -Wall -std=c99 -g -pedantic
+CFLAGS+=	-Iinclude
 #CFLAGS+=	-I/usr/local/include
 #LDFLAGS+=	-L/usr/local/lib
 LDFLAGS+=	-lncurses
 LDFLAGS+=	-lpthread
 
-all: main ww
+all: main
 
-main: ${@}.c
-	$(CC) $(CFLAGS) ${@}.c $(LDFLAGS) -o $@
+SRCS= wizard.c
+HDRS= wizard.h
 
-ww: ${@}.c
-	$(CC) $(CFLAGS) ${@}.c $(LDFLAGS) -o $@
+main: src/${@}.c ${SRCS:C/.*/src\/&/} ${HDRS:C/.*/include\/&/}
+	$(CC) $(CFLAGS) -o bin/$@ src/${@}.c ${SRCS:C/.*/src\/&/} $(LDFLAGS)
+
+pthr2: ${@}.c
+	$(CC) $(CFLAGS) ${@}.c $(LDFLAGS) -o bin/$@
 
 .PHONY: clean 
     
 clean:
-	rm -f main *.core *.BAK
-	rm -f ww
+	rm -f *.core *.BAK
+	rm -f bin/*
 

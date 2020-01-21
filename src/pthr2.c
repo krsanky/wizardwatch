@@ -5,12 +5,6 @@
 /* Let us create a global variable to change it in threads */
 int 		g = 0;
 
-void
-fun0()
-{
-	printf("A curses pgram that creates a kitchen timer type stopwatch and ARED and GREEN button that the ouse can push\n");
-}
-
 void           *
 myThreadFun(void *vargp)
 {

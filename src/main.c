@@ -3,11 +3,22 @@
 #include <pthread.h>
 #include <curses.h>
 #include <unistd.h>
+#include <menu.h>
+
+#include "wizard.h"
+
+#include "ww.h"
 
 WINDOW         *topstatw;
 WINDOW         *countdownw;
 
 void 		paint_all();
+
+void
+fun0()
+{
+	printf("A curses pgram that creates a kitchen timer type stopwatch and ARED and GREEN button that the ouse can push\n");
+}
 
 void
 init()
@@ -63,13 +74,21 @@ int
 main()
 {
 	int 		max_x    , max_y;
-	int 		c;
+	int 		i, c;
 
 	getmaxyx(stdscr, max_y, max_x);
 
-	printf("24 frames per second\n");
 	init();
 
+
+	wprintw(topstatw, "24 frames per second");
+	wrefresh(topstatw);
+
+	for (i=0; i<100000; i++) {
+		wmove(countdownw, 1, 2);
+		wprintw(countdownw, "%d", i);
+		wrefresh(countdownw);
+	}	
 
 	c = wgetch(topstatw);
 

@@ -1,0 +1,27 @@
+Wizardfight.
+
+This is a battle game between 2 (or more) wizards.
+It it both realtime and turn based.
+The location is a "room" when the program is started.
+You are a wizard in this room.
+
+Another wizard can enter the room and fight you.
+The wizards are stat based charcters like in a simple RPG.
+And they fight with dice based mechanics as expected.
+
+It starts off turn based.  One way it can go real time is 
+by a wizard casting a spell.
+
+It is hope that this game embraces UNIX.
+eg. If the wizards are fighting over an ssh connection that drops, then
+this could be handled by the mechanics.
+
+Say there is a bit set for fighting wiozard, who wins on drop, so the
+game can continue after it drops to some form of completion.
+Maybe the story is the wizards phased away from each others dimensions.
+
+There needs to be some form of room discovery.
+The obvious simple one is IP address.
+Maybe there is a email commend to email your ip address to an opponent
+with some cookie text that can be used to connect them..
+
